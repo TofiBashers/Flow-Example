@@ -39,16 +39,14 @@ class ThingsManagingViewModel : ViewModel(), FlowPerformer<ThingsManagingFlow> {
                 Thread.sleep(1000)
                 onEvent(FavouriteThingsLoaded(favouriteThings))
             }
-            is LoadRecommendedThings -> {
-                loadingRecommendedThingsThread = Thread(Runnable {
+            is LoadRecommendedThings ->
+                loadingRecommendedThingsThread = thread {
                     try {
                         Thread.sleep(1000)
                         onEvent(RecommendedThingsLoaded(recommendedThings))
                     } catch (e: InterruptedException) {
                     }
-                })
-                loadingRecommendedThingsThread.start()
-            }
+                }
             is CancelLoadingRecommendedThings -> loadingRecommendedThingsThread.interrupt()
         }
     }

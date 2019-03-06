@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_things_managing.*
 import ru.impression.ebsm.Flow
 import ru.impression.ebsm.FlowManager
 import ru.impression.ebsm.FlowPerformer
-import ru.impression.ebsm.R
+import ru.impression.ebsm.example.R
 import ru.impression.ebsm.example.things_managing.*
 import ru.impression.ebsm.example.things_managing.view.model.ThingsManagingViewModel
 
