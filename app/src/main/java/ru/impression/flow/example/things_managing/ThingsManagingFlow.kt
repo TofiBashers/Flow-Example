@@ -1,6 +1,6 @@
-package ru.impression.ebsm.example.things_managing
+package ru.impression.flow.example.things_managing
 
-import ru.impression.ebsm.Flow
+import ru.impression.flow.Flow
 
 class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
 

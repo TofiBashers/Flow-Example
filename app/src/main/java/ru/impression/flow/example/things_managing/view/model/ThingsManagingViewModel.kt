@@ -1,10 +1,10 @@
-package ru.impression.ebsm.example.things_managing.view.model
+package ru.impression.flow.example.things_managing.view.model
 
 import android.arch.lifecycle.ViewModel
 import com.maximeroussy.invitrode.WordGenerator
-import ru.impression.ebsm.Flow
-import ru.impression.ebsm.FlowPerformer
-import ru.impression.ebsm.example.things_managing.*
+import ru.impression.flow.Flow
+import ru.impression.flow.FlowPerformer
+import ru.impression.flow.example.things_managing.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread

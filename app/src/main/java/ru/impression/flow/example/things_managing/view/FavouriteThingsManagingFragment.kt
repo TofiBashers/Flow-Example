@@ -1,9 +1,9 @@
-package ru.impression.ebsm.example.things_managing.view
+package ru.impression.flow.example.things_managing.view
 
 import android.view.View
 import android.widget.ListView
-import ru.impression.ebsm.Flow
-import ru.impression.ebsm.example.things_managing.*
+import ru.impression.flow.Flow
+import ru.impression.flow.example.things_managing.*
 
 class FavouriteThingsManagingFragment : ThingsManagingFragment() {
     override fun performAction(action: Flow.Action) {

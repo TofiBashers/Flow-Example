@@ -1,10 +1,10 @@
-package ru.impression.ebsm.example.things_managing.view
+package ru.impression.flow.example.things_managing.view
 
 import android.view.View
 import android.widget.ListView
-import ru.impression.ebsm.Flow
-import ru.impression.ebsm.example.things_managing.RecommendedThingsLiked
-import ru.impression.ebsm.example.things_managing.ShowRecommendedThings
+import ru.impression.flow.Flow
+import ru.impression.flow.example.things_managing.RecommendedThingsLiked
+import ru.impression.flow.example.things_managing.ShowRecommendedThings
 
 class RecommendedThingsManagingFragment : ThingsManagingFragment() {
 

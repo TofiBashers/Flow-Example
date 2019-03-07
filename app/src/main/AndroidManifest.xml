@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:dist="http://schemas.android.com/apk/distribution"
-          package="ru.impression.ebsm.example">
+          package="ru.impression.flow.example">
 
     <dist:module dist:instant="true"/>
     <application
@@ -10,7 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="ru.impression.ebsm.example.things_managing.view.ThingsManagingActivity">
+        <activity android:name="ru.impression.flow.example.things_managing.view.ThingsManagingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,11 +1,11 @@
-package ru.impression.ebsm.example.things_managing.view
+package ru.impression.flow.example.things_managing.view
 
 import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.View
 import android.widget.ArrayAdapter
-import ru.impression.ebsm.FlowPerformer
-import ru.impression.ebsm.example.things_managing.ThingsManagingFlow
+import ru.impression.flow.FlowPerformer
+import ru.impression.flow.example.things_managing.ThingsManagingFlow
 
 abstract class ThingsManagingFragment : ListFragment(), FlowPerformer<ThingsManagingFlow> {
 
