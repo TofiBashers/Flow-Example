@@ -47,12 +47,12 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
         // рекомендуемые вещи загружены
         subscribeOnEvent<RecommendedThingsLoaded> {
 
-                state.loadingRecommendedThings = false
+            state.loadingRecommendedThings = false
 
-                // устанавливаем в качестве основного состояния отображение любимых и рекомендуемых вещей
-                performAction(ShowRecommendedThings(it.things))
+            // устанавливаем в качестве основного состояния отображение любимых и рекомендуемых вещей
+            performAction(ShowRecommendedThings(it.things))
 
-                state.showingRecommendedThings = true
+            state.showingRecommendedThings = true
         }
 
         // пользователю понравилась рекомендуемая вещь
@@ -81,6 +81,10 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
             }
 
             state.recommendedThingsEnabled = false
+        }
+
+        subscribeOnSeriesOfEvents<E1, E2> { e1, e2 ->
+            performAction(A1())
         }
     }
 
@@ -128,3 +132,8 @@ class FavouriteThingsUpdated : Flow.Event()
 class RecommendedThingsHideRequested : Flow.Event()
 
 class HideRecommendedThings : Flow.Action()
+
+class E1 : Flow.Event()
+class E2 : Flow.Event()
+
+class A1 : Flow.Action()

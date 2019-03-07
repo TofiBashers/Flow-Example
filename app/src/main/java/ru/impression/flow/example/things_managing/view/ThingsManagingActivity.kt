@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_things_managing.*
 import ru.impression.flow.Flow
 import ru.impression.flow.FlowManager
@@ -30,7 +31,6 @@ class ThingsManagingActivity : AppCompatActivity(), FlowPerformer<ThingsManaging
         viewModel = ViewModelProviders
             .of(this, ViewModelProvider.NewInstanceFactory())
             .get(ThingsManagingViewModel::class.java)
-
         recommended_things_loader_button.setOnClickListener {
             if ((it as Button).text == "Показать") {
                 it.text = "Скрыть"
@@ -46,21 +46,14 @@ class ThingsManagingActivity : AppCompatActivity(), FlowPerformer<ThingsManaging
 
     override fun performAction(action: Flow.Action) {
         when (action) {
-            is LoadFavouriteThings -> showFragment(R.id.top_container,
-                ThingsLoadingFragment.newInstance()
-            )
-            is ShowFavouriteThings -> showFragment(R.id.top_container,
-                FavouriteThingsManagingFragment.newInstance()
-            )
-            is LoadRecommendedThings -> showFragment(R.id.bottom_container,
-                ThingsLoadingFragment.newInstance()
-            )
+            is LoadFavouriteThings -> showFragment(R.id.top_container, ThingsLoadingFragment.newInstance())
+            is ShowFavouriteThings -> showFragment(R.id.top_container, FavouriteThingsManagingFragment.newInstance())
+            is LoadRecommendedThings -> showFragment(R.id.bottom_container, ThingsLoadingFragment.newInstance())
             is CancelLoadingRecommendedThings -> removeFragment(ThingsLoadingFragment::class.java)
             is ShowRecommendedThings ->
-                showFragment(R.id.bottom_container,
-                    RecommendedThingsManagingFragment.newInstance()
-                )
+                showFragment(R.id.bottom_container, RecommendedThingsManagingFragment.newInstance())
             is HideRecommendedThings -> removeFragment(RecommendedThingsManagingFragment::class.java)
+            is A1 -> Toast.makeText(this, "OK!", Toast.LENGTH_SHORT).show()
         }
     }
 

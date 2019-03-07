@@ -27,6 +27,7 @@ class FavouriteThingsManagingFragment : ThingsManagingFragment() {
 
     override fun onListItemClick(l: ListView?, v: View?, position: Int, id: Long) {
         onEvent(FavouriteThingsUnliked(adapterData[position]))
+        onEvent(E2())
     }
 
     companion object {
