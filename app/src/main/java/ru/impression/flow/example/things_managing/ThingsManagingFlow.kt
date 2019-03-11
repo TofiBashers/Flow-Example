@@ -6,24 +6,18 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
 
     override fun start() {
 
-        // загружаем любимые вещи
         performAction(LoadFavouriteThings())
 
-        // любимые вещи загружены
         subscribeOnEvent<FavouriteThingsLoaded> {
 
-            // устанавливаем в качестве основного состояния отображение только любимых вещей
             performAction(ShowFavouriteThings(it.things))
         }
 
-        // пользователь запросил удалить любимую вещь
         subscribeOnEvent<FavouriteThingsUnliked> {
 
-            // удаляем любимую вещь
             performAction(RemoveFavouriteThing(it.thing))
         }
 
-        // пользователь запросил рекомендуемые вещи
         subscribeOnEvent<RecommendedThingsRequested> {
 
             state.recommendedThingsEnabled = true
@@ -44,37 +38,30 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
             }
         }
 
-        // рекомендуемые вещи загружены
         subscribeOnEvent<RecommendedThingsLoaded> {
 
             state.loadingRecommendedThings = false
 
-            // устанавливаем в качестве основного состояния отображение любимых и рекомендуемых вещей
             performAction(ShowRecommendedThings(it.things))
 
             state.showingRecommendedThings = true
         }
 
-        // пользователю понравилась рекомендуемая вещь
         subscribeOnEvent<RecommendedThingsLiked> {
 
-            // добавляем понравившуюся вещь в любимые
             performAction(AddFavouriteThing(it.thing))
         }
 
-        // пользователь запросил скрыть рекомендуемые вещи
         subscribeOnEvent<RecommendedThingsHideRequested> {
 
             if (state.loadingRecommendedThings) {
 
-                // устанавливаем в качестве основного состояния отображение только любимых вещей
                 performAction(CancelLoadingRecommendedThings())
 
                 state.loadingRecommendedThings = false
 
             } else if (state.showingRecommendedThings) {
 
-                // устанавливаем в качестве основного состояния отображение только любимых вещей
                 performAction(HideRecommendedThings())
 
                 state.showingRecommendedThings = false
@@ -90,7 +77,6 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
 
     private fun loadRecommendedThings() {
 
-        // загружаем рекомендуемые вещи
         performAction(LoadRecommendedThings())
 
         state.loadingRecommendedThings = true
