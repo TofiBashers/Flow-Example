@@ -6,6 +6,7 @@ import ru.impression.flow.Flow
 import ru.impression.flow.example.things_managing.*
 
 class FavouriteThingsManagingFragment : ThingsManagingFragment() {
+
     override fun performAction(action: Flow.Action) {
         when (action) {
             is ShowFavouriteThings -> {

@@ -25,19 +25,6 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
             loadRecommendedThings()
         }
 
-        subscribeOnEvent<FavouriteThingsUpdated> {
-
-            if (state.recommendedThingsEnabled) {
-
-                if (state.loadingRecommendedThings) {
-
-                    performAction(CancelLoadingRecommendedThings())
-                }
-
-                loadRecommendedThings()
-            }
-        }
-
         subscribeOnEvent<RecommendedThingsLoaded> {
 
             state.loadingRecommendedThings = false
@@ -50,6 +37,19 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
         subscribeOnEvent<RecommendedThingsLiked> {
 
             performAction(AddFavouriteThing(it.thing))
+        }
+
+        subscribeOnEvent<FavouriteThingsUpdated> {
+
+            if (state.recommendedThingsEnabled) {
+
+                if (state.loadingRecommendedThings) {
+
+                    performAction(CancelLoadingRecommendedThings())
+                }
+
+                loadRecommendedThings()
+            }
         }
 
         subscribeOnEvent<RecommendedThingsHideRequested> {

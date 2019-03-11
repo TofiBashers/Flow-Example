@@ -40,7 +40,6 @@ class ThingsManagingActivity : AppCompatActivity(), FlowPerformer<ThingsManaging
                 onEvent(RecommendedThingsHideRequested())
             }
         }
-
         attachToFlow()
     }
 

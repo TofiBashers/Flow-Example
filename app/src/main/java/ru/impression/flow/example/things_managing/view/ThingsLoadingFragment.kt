@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import ru.impression.flow.example.R
 
 class ThingsLoadingFragment : Fragment() {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_things_loading, container, false)
 

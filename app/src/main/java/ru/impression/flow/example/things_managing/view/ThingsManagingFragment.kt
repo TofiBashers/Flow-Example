@@ -15,7 +15,6 @@ abstract class ThingsManagingFragment : ListFragment(), FlowPerformer<ThingsMana
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         attachToFlow()
     }
 

@@ -28,11 +28,6 @@ class ThingsManagingViewModel : ViewModel(), FlowPerformer<ThingsManagingFlow> {
         attachToFlow()
     }
 
-    override fun onCleared() {
-        detachFromFlow()
-        super.onCleared()
-    }
-
     override fun performAction(action: Flow.Action) {
         when (action) {
             is LoadFavouriteThings -> thread {
@@ -51,4 +46,8 @@ class ThingsManagingViewModel : ViewModel(), FlowPerformer<ThingsManagingFlow> {
         }
     }
 
+    override fun onCleared() {
+        detachFromFlow()
+        super.onCleared()
+    }
 }
