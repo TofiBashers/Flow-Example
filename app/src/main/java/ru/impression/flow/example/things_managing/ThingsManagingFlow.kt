@@ -83,9 +83,9 @@ class ThingsManagingFlow : Flow<ThingsManagingFlow.State>(State()) {
     }
 
     class State : Flow.State() {
-        var recommendedThingsEnabled: Boolean = false
-        var loadingRecommendedThings: Boolean = false
-        var showingRecommendedThings: Boolean = false
+        var recommendedThingsEnabled = false
+        var loadingRecommendedThings = false
+        var showingRecommendedThings = false
     }
 }
 
